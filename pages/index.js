@@ -1,9 +1,14 @@
 import Head from 'next/head'
 //
+import About from './../components/About'
+import Work from './../components/Work'
 import Links from './../components/Links'
-import { fetchLinks } from './../lib/api'
+import { getSectionWork, getSectionLinks } from './../lib/api'
 
-export default function Home({ links }) {
+export default function Home({ 
+  sectionWork,
+  sectionLinks 
+}) {
   return (
     <div className='Home'>
       <Head>
@@ -11,24 +16,23 @@ export default function Home({ links }) {
         <meta name="description" content="Sarah Yu is a front-end web developer based in New York." />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <main className='container max-w-screen-lg mx-auto py-10 px-5 md:py-36 md:px-10'>
-        <h1 className='text-2xl'>
-          Sarah Yu is a front-end <span className='whitespace-nowrap'>web developer </span><br />
-          based in New York.
-        </h1>
-        <Links links={links} />
+      <main className='container max-w-screen-lg mx-auto py-10 px-5 md:px-10'>
+        <About />
+        <Work title={sectionWork.title} projects={sectionWork.projects} />
+        <Links title={sectionLinks.title} links={sectionLinks.links} />
       </main>
     </div>
   )
 }
 
 export async function getStaticProps() {
-  const response = await fetchLinks()
-  const links = response.data.linkCollection.items
+  const sectionWork = await getSectionWork()
+  const sectionLinks = await getSectionLinks()
 
   return {
     props: {
-      links
+      sectionWork,
+      sectionLinks
     }
   }
 }
