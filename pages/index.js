@@ -1,30 +1,9 @@
-import { useState, useEffect } from 'react'
 import Head from 'next/head'
 //
 import Links from './../components/Links'
+import { fetchLinks } from './../lib/api'
 
-const contactLinks = [
-  {
-    title: 'Email',
-    url: 'mailto:sarahyu.work@gmail.com'
-  },
-  {
-    title: 'LinkedIn',
-    url: 'https://www.linkedin.com/in/sarah---yu'
-  },
-  {
-    title: 'Resume',
-    url: 'https://drive.google.com/file/d/1YW7dZuptZRE0iRVncIeU1YttGwgZE6Vh/view?usp=sharing'
-  }
-]
-
-export default function Home() {
-  const [links, setLinks] = useState([])
-
-  useEffect(() => {
-    setLinks(contactLinks)
-  }, [])
-
+export default function Home({ links }) {
   return (
     <div className='Home'>
       <Head>
@@ -41,4 +20,15 @@ export default function Home() {
       </main>
     </div>
   )
+}
+
+export async function getStaticProps() {
+  const response = await fetchLinks()
+  const links = response.data.linkCollection.items
+
+  return {
+    props: {
+      links
+    }
+  }
 }
