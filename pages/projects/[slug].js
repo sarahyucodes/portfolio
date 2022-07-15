@@ -7,13 +7,6 @@ import { getAllProjectsWithSlugs, getProjectBySlug } from './../../lib/api'
 export default function Project({ project }) {
     const router = useRouter()
 
-    const {
-        title,
-        client,
-        description,
-        technologies
-    } = project
-
     return (
         <Container>
             <button
@@ -27,17 +20,17 @@ export default function Project({ project }) {
                 project ? (
                     <Section>
                         <div className='col-span-full'>
-                            <h1 className='text-2xl md:text-3xl'>{title}</h1>
-                            <div className='text-sm font-medium text-blue-700 pt-2'>{client ?? null}</div>
+                            <h1 className='text-2xl md:text-3xl'>{project.title}</h1>
+                            <div className='text-sm font-medium text-blue-700 pt-2'>{project.client ?? null}</div>
                         </div>
                         <div className='col-span-full'>
                             <p className='text-xl md:text-2xl'>
-                                {description}
+                                {project.description}
                             </p>
                         </div>
                         <div className='col-span-full flex flex-wrap' aria-label='technologies'>
                             {
-                                technologies?.map((technology, index) => {
+                                project.technologies?.map((technology, index) => {
                                     return (
                                         <div
                                             key={index}
