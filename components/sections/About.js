@@ -2,7 +2,7 @@ import Section from './../Section'
 
 export default function About() {
     return (
-        <Section header paddingBottom='pb-20'>
+        <Section paddingBottom='md:pb-32'>
             <h1 className='
                 col-span-full
                 text-2xl

@@ -5,7 +5,7 @@ export default function Footer() {
     return (
         <footer className='text-sm text-slate-700 font-medium'>
             <Container>
-                <Section paddingTop='pt-12 md:pt-24'>
+                <Section paddingTop='pt-12 md:pt-24 pb-0'>
                     <div className='col-span-full md:col-span-4'>
                         © 2022 — Sarah Yu
                     </div>

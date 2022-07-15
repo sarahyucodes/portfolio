@@ -1,6 +1,6 @@
 import { useRouter } from 'next/router'
 //
-import Container from './../../components/Container'
+import Layout from './../../components/Layout'
 import Section from './../../components/Section'
 import { getAllProjectsWithSlugs, getProjectBySlug } from './../../lib/api'
 
@@ -8,7 +8,7 @@ export default function Project({ project }) {
     const router = useRouter()
 
     return (
-        <Container>
+        <Layout title={`Sarah Yu - Projects - ${project.title}`}>
             <button
                 className='flex items-center text-2xl group'
                 onClick={() => router.back()}
@@ -47,7 +47,7 @@ export default function Project({ project }) {
                     </Section>
                 ) : null
             }
-        </Container>
+        </Layout>
     )
 }
 
