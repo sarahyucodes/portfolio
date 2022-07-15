@@ -1,8 +1,8 @@
 import Head from 'next/head'
 //
-import About from './../components/About'
-import Work from './../components/Work'
-import Links from './../components/Links'
+import About from './../components/sections/About'
+import Work from './../components/sections/Work'
+import Links from './../components/sections/Links'
 import { getSectionWork, getSectionLinks } from './../lib/api'
 
 export default function Home({ 
