@@ -1,12 +1,10 @@
-import { useRouter } from 'next/router'
+import Link from 'next/link'
 //
 import Layout from './../../components/Layout'
 import Section from './../../components/Section'
 import { getAllProjectsWithSlugs, getProjectBySlug } from './../../lib/api'
 
 export default function Project({ project }) {
-    const router = useRouter()
-
     return (
         <Layout>
             {
@@ -40,13 +38,12 @@ export default function Project({ project }) {
                     </Section>
                 ) : null
             }
-            <button
-                className='flex items-center text-2xl group mt-36'
-                onClick={() => router.back()}
-            >
-                <span className='inline-block mr-2'>←</span> 
-                <span className='inline-block group-hover:underline group-hover:underline-offset-2 group-hover:decoration-2'>Back to home</span>
-            </button>
+            <Link href={'/'}>
+                <button className='flex items-center text-2xl group mt-36'>
+                    <span className='inline-block mr-2'>←</span> 
+                    <span className='inline-block group-hover:underline group-hover:underline-offset-2 group-hover:decoration-2'>Back to home</span>
+                </button>
+            </Link>
         </Layout>
     )
 }
