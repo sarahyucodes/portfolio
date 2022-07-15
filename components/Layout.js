@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion'
-import Head from 'next/Head'
+import Head from 'next/head'
 //
 import Container from './Container'
 import Footer from './sections/Footer'
@@ -22,7 +22,7 @@ export default function Layout({
                     <meta name='description' content={content} />
                     <link rel='icon' href='/favicon.ico' />
                 </Head>
-                <main className='min-h-screen'>
+                <main>
                     <motion.main
                         initial='hidden'
                         animate='enter'
