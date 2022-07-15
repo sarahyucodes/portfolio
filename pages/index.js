@@ -1,9 +1,10 @@
 import Head from 'next/head'
 //
-import Main from './../components/Main'
+import Container from './../components/Container'
 import About from './../components/sections/About'
 import Work from './../components/sections/Work'
 import Links from './../components/sections/Links'
+import Footer from './../components/sections/Footer'
 import { getSectionWork, getSectionLinks } from './../lib/api'
 
 export default function Home({ 
@@ -17,11 +18,12 @@ export default function Home({
         <meta name="description" content="Sarah Yu is a front-end web developer based in New York." />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <Main>
+      <Container>
         <About />
         <Work title={sectionWork.title} projects={sectionWork.projects} />
         <Links title={sectionLinks.title} links={sectionLinks.links} />
-      </Main>
+      </Container>
+      <Footer /> 
     </div>
   )
 }

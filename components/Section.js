@@ -5,6 +5,7 @@ export default function Section(props) {
         content,
         header, // for <header> only
         titleSpan,
+        paddingTop,
         paddingBottom
     } = props
 
@@ -13,6 +14,7 @@ export default function Section(props) {
         grid-cols-12
         gap-6
         pt-10
+        ${paddingTop ?? 'pb-10'}
         ${paddingBottom ?? 'pb-10'}
     `
 

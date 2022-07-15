@@ -1,7 +1,6 @@
-import Link from 'next/link'
 import { useRouter } from 'next/router'
 //
-import Main from './../../components/Main'
+import Container from './../../components/Container'
 import Section from './../../components/Section'
 import { getAllProjectsWithSlugs, getProjectBySlug } from './../../lib/api'
 
@@ -16,7 +15,7 @@ export default function Project({ project }) {
     } = project
 
     return (
-        <Main>
+        <Container>
             <button
                 className='flex items-center text-2xl group'
                 onClick={() => router.back()}
@@ -51,7 +50,7 @@ export default function Project({ project }) {
                     }
                 </div>
             </Section>
-        </Main>
+        </Container>
     )
 }
 
