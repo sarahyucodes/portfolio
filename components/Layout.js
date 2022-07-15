@@ -30,7 +30,7 @@ export default function Layout({
                         variants={variants}
                         transition={{ 
                             type: 'tween',
-                            duration: 0.4,
+                            duration: 0.5,
                         }}
                     >
                         <Container>
