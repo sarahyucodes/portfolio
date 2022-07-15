@@ -8,7 +8,7 @@ export default function Project({ project }) {
     const router = useRouter()
 
     return (
-        <Layout title={`Sarah Yu - Projects - ${project.title}`}>
+        <Layout>
             {
                 project ? (
                     <Section>
