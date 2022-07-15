@@ -1,13 +1,21 @@
 import Link from 'next/link'
 import Image from 'next/image'
+import { useRouter } from 'next/router'
 
 export default function ProjectPreview({
     project,
     index
 }) {
+    const router = useRouter()
+
+    const handleClickImage = e => {
+        e.preventDefault()
+        router.push(`/projects/${project.slug}`)
+    }
+    
     return (
         <>
-            <div className='relative w-full aspect-[16/9]'>
+            <div className='relative w-full aspect-[16/9] cursor-pointer peer' onClick={handleClickImage}>
                 <Image 
                     src={project?.imagesCollection?.items[0]?.url}
                     unoptimized={project?.imagesCollection?.items[0]?.contentType === 'image/gif' ?? false}
@@ -20,7 +28,7 @@ export default function ProjectPreview({
                 />
             </div>
             <Link href={`/projects/${project.slug}`}>
-                <button className='w-full flex items-center justify-between pt-2 pb-4 md:pt-3 md:pb-0 group'>
+                <button className='w-full flex items-center justify-between pt-2 pb-5 md:pt-3 md:pb-0 group'>
                     <span className='mr-4 font-semibold text-xs text-slate-700'>0{index + 1}</span>
                     <h3 className='
                         text-base font-medium
