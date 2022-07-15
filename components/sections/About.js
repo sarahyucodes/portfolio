@@ -9,7 +9,7 @@ export default function About() {
                 pb-8
                 before:content-[""] before:inline-block before:w-6 before:h-6 before:bg-blue-700 before:rounded-full before:mr-3
                 flex items-center
-            8 md:text-3xl
+                md:text-3xl
             '>
                 Sarah Yu
             </h1>

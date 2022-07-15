@@ -1,5 +1,6 @@
 import Head from 'next/head'
 //
+import Main from './../components/Main'
 import About from './../components/sections/About'
 import Work from './../components/sections/Work'
 import Links from './../components/sections/Links'
@@ -16,11 +17,11 @@ export default function Home({
         <meta name="description" content="Sarah Yu is a front-end web developer based in New York." />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <main className='container max-w-screen-lg mx-auto py-10 px-5 md:px-10'>
+      <Main>
         <About />
         <Work title={sectionWork.title} projects={sectionWork.projects} />
         <Links title={sectionLinks.title} links={sectionLinks.links} />
-      </main>
+      </Main>
     </div>
   )
 }
