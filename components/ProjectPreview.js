@@ -5,16 +5,16 @@ export default function ProjectPreview({
     project,
     index
 }) {
-    const { url } = project.imagesCollection.items[0]
-
     return (
         <>
             <div className='relative w-full aspect-[16/9]'>
                 <Image 
-                    src={url}
+                    src={project?.imagesCollection?.items[0]?.url}
+                    unoptimized={project?.imagesCollection?.items[0]?.contentType === 'image/gif' ?? false}
                     alt={project.title}
                     layout='fill'
                     objectFit='cover'
+                    priority
                 />
             </div>
             <Link href={`/projects/${project.slug}`}>
