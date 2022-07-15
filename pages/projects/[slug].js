@@ -18,10 +18,11 @@ export default function Project({ project }) {
     return (
         <Main>
             <button
-                className='flex items-center text-2xl'
-                onClick={() => router.back()}>
+                className='flex items-center text-2xl group'
+                onClick={() => router.back()}
+            >
                 <span className='inline-block mr-2'>←</span> 
-                Back to home
+                <span className='inline-block group-hover:underline group-hover:underline-offset-2 group-hover:decoration-2'>Back to home</span>
             </button>
             <Section>
                 <div className='col-span-full'>

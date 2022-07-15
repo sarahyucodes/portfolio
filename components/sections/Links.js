@@ -13,7 +13,7 @@ export default function Links({
                         links.map((link, index) => {
                             return (
                                 <li key={index}>
-                                    <a href={link.url} target='_blank' rel="noreferrer" className='hover:text-blue-700 font-medium underline decoration-2 transition'>
+                                    <a href={link.url} target='_blank' rel="noreferrer" className='hover:text-blue-700 font-medium underline underline-offset-1 decoration-2 transition'>
                                         {link.title}
                                     </a>
                                 </li>
