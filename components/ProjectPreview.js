@@ -12,6 +12,8 @@ export default function ProjectPreview({
                     src={project?.imagesCollection?.items[0]?.url}
                     unoptimized={project?.imagesCollection?.items[0]?.contentType === 'image/gif' ?? false}
                     alt={project.title}
+                    placeholder='blur'
+                    blurDataURL='data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mOU9btRDwADlwHEWQ/OtQAAAABJRU5ErkJggg=='
                     layout='fill'
                     objectFit='cover'
                     priority
