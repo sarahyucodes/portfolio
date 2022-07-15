@@ -9,13 +9,6 @@ export default function Project({ project }) {
 
     return (
         <Layout title={`Sarah Yu - Projects - ${project.title}`}>
-            <button
-                className='flex items-center text-2xl group'
-                onClick={() => router.back()}
-            >
-                <span className='inline-block mr-2'>←</span> 
-                <span className='inline-block group-hover:underline group-hover:underline-offset-2 group-hover:decoration-2'>Back to home</span>
-            </button>
             {
                 project ? (
                     <Section>
@@ -47,6 +40,13 @@ export default function Project({ project }) {
                     </Section>
                 ) : null
             }
+            <button
+                className='flex items-center text-2xl group mt-36'
+                onClick={() => router.back()}
+            >
+                <span className='inline-block mr-2'>←</span> 
+                <span className='inline-block group-hover:underline group-hover:underline-offset-2 group-hover:decoration-2'>Back to home</span>
+            </button>
         </Layout>
     )
 }
