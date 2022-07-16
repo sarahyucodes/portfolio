@@ -3,6 +3,7 @@ import Link from 'next/link'
 import Layout from './../../components/Layout'
 import Section from './../../components/Section'
 import Image from './../../components/Image'
+import Video from './../../components/Video'
 import { getAllProjectsWithSlugs, getProjectBySlug } from './../../lib/api'
 
 export default function Project({ project }) {
@@ -25,17 +26,17 @@ export default function Project({ project }) {
                             <div className='text-slate-600 pt-2 mb-2 md:flex md:items-end md:justify-between'>
                                 {
                                     project.client ? (
-                                        <div className='pb-1 md:pb-0 font-medium text-base'>
-                                            {project.client}
-                                        </div>
+                                    <div className='pb-1 md:pb-0 font-medium text-base'>
+                                        {project.client}
+                                    </div>
                                     ) : null}
                                 {
                                     project.link ? (
-                                        <div>
-                                            <a href={project.link} target='_blank' rel='noreferrer' className='font-medium text-base transition hover:text-blue-700'>
-                                                See live <span className='inline-block -rotate-45 font-bold'>→</span>
-                                            </a>
-                                        </div>
+                                    <div>
+                                        <a href={project.link} target='_blank' rel='noreferrer' className='font-medium text-base transition hover:text-blue-700'>
+                                            See live <span className='inline-block -rotate-45 font-bold'>→</span>
+                                        </a>
+                                    </div>
                                     ) : null
                                 }
                             </div>
@@ -68,7 +69,17 @@ export default function Project({ project }) {
                                 })
                             }
                         </div>
-                        <div className='col-span-full flex flex-wrap' aria-label='technologies'>
+                        {
+                            project.video ? (
+                                <div className='col-span-full relative'>
+                                    <Video
+                                        source={project.video.url}
+                                        autoplay={project.videoAutoplay}
+                                    />
+                                </div> 
+                            ) : null
+                        }
+                        <div className='col-span-full flex flex-wrap md:py-3' aria-label='technologies'>
                             {
                                 project.technologies?.map((technology, index) => {
                                     return (
