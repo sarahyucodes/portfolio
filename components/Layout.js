@@ -7,7 +7,8 @@ import Footer from './sections/Footer'
 export default function Layout({
     children,
     title='Sarah Yu',
-    content='Sarah Yu is a front-end web developer based in New York.'
+    content='Sarah Yu is a front-end web developer based in New York.',
+    navigation
 }) {
     const variants = {
         hidden: { opacity: 0, x: 0, y: 0 },
@@ -22,6 +23,11 @@ export default function Layout({
                     <meta name='description' content={content} />
                     <link rel='icon' href='/favicon.ico' />
                 </Head>
+                <nav>
+                    <Container>
+                        {navigation}
+                    </Container>
+                </nav>
                 <main>
                     <motion.main
                         initial='hidden'

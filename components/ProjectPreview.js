@@ -1,6 +1,7 @@
 import Link from 'next/link'
-import Image from 'next/image'
 import { useRouter } from 'next/router'
+//
+import Image from './../components/Image'
 
 export default function ProjectPreview({
     project,
@@ -16,14 +17,10 @@ export default function ProjectPreview({
     return (
         <>
             <div className='relative w-full aspect-[16/9] cursor-pointer peer' onClick={handleClickImage}>
-                <Image 
-                    src={project?.imagesCollection?.items[0]?.url}
-                    unoptimized={project?.imagesCollection?.items[0]?.contentType === 'image/gif' ?? false}
-                    alt={project.title}
-                    placeholder='blur'
-                    blurDataURL='data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mOU9btRDwADlwHEWQ/OtQAAAABJRU5ErkJggg=='
-                    layout='fill'
-                    objectFit='cover'
+                <Image
+                    url={project?.imagesCollection?.items[0]?.url}
+                    altText={project?.imagesCollection?.items[0]?.description}
+                    type={project?.imagesCollection?.items[0]?.contentType}
                     priority
                 />
             </div>
