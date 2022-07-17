@@ -12,7 +12,7 @@ export default function Project({ project }) {
         <Layout
             navigation={
                 <Link href={'/'}>
-                    <button className='flex items-center text-2xl group'>
+                    <button className='flex items-center text-base font-medium group'>
                         <span className='inline-block mr-2'>←</span> 
                         <span className='inline-block group-hover:underline group-hover:underline-offset-2 group-hover:decoration-2'>Back to home</span>
                     </button>
