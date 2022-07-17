@@ -9,6 +9,7 @@ export default function VideoComponent({
             autoPlay={autoplay}
             loop={autoplay}
             muted={autoplay}
+            playsInline={autoplay}
         >
             <source src={source} />
         </video>
