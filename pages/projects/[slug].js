@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import ReactMarkdown from 'react-markdown'
 //
 import Layout from './../../components/Layout'
 import Section from './../../components/Section'
@@ -42,10 +43,13 @@ export default function Project({ project }) {
                             </div>
                             
                         </div>
-                        <div className='col-span-full'>
-                            <p className='text-xl md:text-2xl'>
-                                {project.description}
-                            </p>
+                        <div className='col-span-full text-xl md:text-2xl'>
+                           <ReactMarkdown
+                                children={project.description}
+                                components={{
+                                    p: props => <p className='pb-3 last:pb-0'>{props.children}</p>
+                                }}
+                           />
                         </div>
                         <div className='col-span-full'>
                             {
