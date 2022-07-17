@@ -21,7 +21,6 @@ export default function ProjectPreview({
                     url={project?.imagesCollection?.items[0]?.url}
                     altText={project?.imagesCollection?.items[0]?.description}
                     type={project?.imagesCollection?.items[0]?.contentType}
-                    priority
                 />
             </div>
             <Link href={`/projects/${project.slug}`}>

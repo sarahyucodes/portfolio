@@ -6,7 +6,6 @@ export default function ImageComponent({
     layout='fill',
     objectFit='cover',
     type,
-    priority=false
 }) {
     return (
         <Image 
@@ -17,7 +16,6 @@ export default function ImageComponent({
             unoptimized={type === 'image/gif'}
             layout={layout}
             objectFit={objectFit}
-            priority={priority}
         />
     )
 }
