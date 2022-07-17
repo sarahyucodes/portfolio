@@ -3,8 +3,8 @@ import ReactMarkdown from 'react-markdown'
 //
 import Layout from './../../components/Layout'
 import Section from './../../components/Section'
-import Image from './../../components/Image'
-import Video from './../../components/Video'
+import ImageComponent from './../../components/ImageComponent'
+import VideoComponent from './../../components/VideoComponent'
 import { getAllProjectsWithSlugs, getProjectBySlug } from './../../lib/api'
 
 export default function Project({ project }) {
@@ -45,11 +45,12 @@ export default function Project({ project }) {
                         </div>
                         <div className='col-span-full text-xl md:text-2xl'>
                            <ReactMarkdown
-                                children={project.description}
                                 components={{
                                     p: props => <p className='pb-3 last:pb-0'>{props.children}</p>
                                 }}
-                           />
+                           >
+                            {project.description}
+                           </ReactMarkdown>
                         </div>
                         <div className='col-span-full'>
                             {
@@ -62,7 +63,7 @@ export default function Project({ project }) {
                                             w-full
                                             ${image.width/image.height > 1 ? 'aspect-[16/9]' : 'aspect-[4/5]'}
                                         `}>
-                                            <Image 
+                                            <ImageComponent 
                                                 url={image.url}
                                                 altText={image.description}
                                                 type={image.contentType}
@@ -76,7 +77,7 @@ export default function Project({ project }) {
                         {
                             project.video ? (
                                 <div className='col-span-full relative'>
-                                    <Video
+                                    <VideoComponent
                                         source={project.video.url}
                                         autoplay={project.videoAutoplay}
                                     />
@@ -109,8 +110,6 @@ export default function Project({ project }) {
 
 export async function getStaticProps({ params }) {
     const data = await getProjectBySlug(params.slug)
-
-    console.log(data ?? null);
 
     return {
         props: {

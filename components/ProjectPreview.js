@@ -1,7 +1,7 @@
 import Link from 'next/link'
 import { useRouter } from 'next/router'
 //
-import Image from './../components/Image'
+import ImageComponent from './../components/ImageComponent'
 
 export default function ProjectPreview({
     project,
@@ -17,7 +17,7 @@ export default function ProjectPreview({
     return (
         <>
             <div className='relative w-full aspect-[16/9] cursor-pointer peer' onClick={handleClickImage}>
-                <Image
+                <ImageComponent
                     url={project?.imagesCollection?.items[0]?.url}
                     altText={project?.imagesCollection?.items[0]?.description}
                     type={project?.imagesCollection?.items[0]?.contentType}
