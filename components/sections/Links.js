@@ -1,4 +1,5 @@
 import Section from './../Section'
+import ExtLinkComponent from '../ExtLinkComponent'
 
 export default function Links({ 
     title,
@@ -13,9 +14,13 @@ export default function Links({
                         links.map((link, index) => {
                             return (
                                 <li key={index}>
-                                    <a href={link.url} target='_blank' rel="noreferrer" className='hover:text-blue-700 font-medium underline underline-offset-1 decoration-2 transition'>
+                                    <ExtLinkComponent
+                                        href={link.url}
+                                        classNames='font-medium'
+                                        decoration='decoration-2'
+                                    >
                                         {link.title}
-                                    </a>
+                                    </ExtLinkComponent>
                                 </li>
                             )
                         })

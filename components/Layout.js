@@ -8,7 +8,8 @@ export default function Layout({
     children,
     title='Sarah Yu',
     content='Sarah Yu is a front-end web developer based in New York.',
-    navigation
+    navigation,
+    footerContent
 }) {
     const variants = {
         hidden: { opacity: 0, x: 0, y: 0 },
@@ -44,7 +45,7 @@ export default function Layout({
                         </Container>
                     </motion.main>
                 </main>
-                <Footer />
+                <Footer footerContent={footerContent} />
         </>
     )
 }

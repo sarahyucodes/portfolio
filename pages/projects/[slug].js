@@ -5,9 +5,11 @@ import Layout from './../../components/Layout'
 import Section from './../../components/Section'
 import ImageComponent from './../../components/ImageComponent'
 import VideoComponent from './../../components/VideoComponent'
-import { getAllProjectsWithSlugs, getProjectBySlug } from './../../lib/api'
+import ParagraphComponent from '../../components/ParagraphComponent'
+import ExtLinkComponent from '../../components/ExtLinkComponent'
+import { getAllProjectsWithSlugs, getProjectBySlug, getFooter } from './../../lib/api'
 
-export default function Project({ project }) {
+export default function Project({ project, footerContent }) {
     return (
         <Layout
             navigation={
@@ -18,6 +20,7 @@ export default function Project({ project }) {
                     </button>
                 </Link>
             }
+            footerContent={footerContent}
         >
             {
                 project ? (
@@ -33,11 +36,12 @@ export default function Project({ project }) {
                                     ) : null}
                                 {
                                     project.link ? (
-                                    <div>
-                                        <a href={project.link} target='_blank' rel='noreferrer' className='font-medium text-base transition hover:text-blue-700'>
-                                            See live <span className='inline-block -rotate-45 font-bold'>→</span>
-                                        </a>
-                                    </div>
+                                    <ExtLinkComponent
+                                        href={project.link}
+                                        underline={false} classNames='font-medium text-base'
+                                    >
+                                        See live <span className='inline-block -rotate-45 font-bold'>→</span>
+                                    </ExtLinkComponent>
                                     ) : null
                                 }
                             </div>
@@ -46,7 +50,7 @@ export default function Project({ project }) {
                         <div className='col-span-full text-xl md:text-2xl'>
                            <ReactMarkdown
                                 components={{
-                                    p: props => <p className='pb-3 last:pb-0'>{props.children}</p>
+                                    p: props => <ParagraphComponent {...props} />
                                 }}
                            >
                             {project.description}
@@ -110,10 +114,12 @@ export default function Project({ project }) {
 
 export async function getStaticProps({ params }) {
     const data = await getProjectBySlug(params.slug)
+    const footerContent = await getFooter()
 
     return {
         props: {
-            project: data ?? null
+            project: data ?? null,
+            footerContent
         }
     }
 }
